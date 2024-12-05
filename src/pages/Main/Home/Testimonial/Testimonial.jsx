@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TitleBar from '../TitleBar';
 import customer from '../../../../assets/images/customer.jpeg';
 import leaf from '../../../../assets/images/leaf.png';
-
+import marks from '../../../../assets/svg/marks.svg'
 const Testimonial = () => {
     const reviews = [
         {
@@ -55,13 +55,17 @@ const Review = ({ reviews }) => {
 
                 <div className="flex flex-col lg:flex-row items-center lg:items-stretch gap-6">
 
-                    <div className="w-full lg:w-1/3 flex justify-center">
-                        <div className="w-52 lg:w-72 h-72 lg:h-96 rounded-[142px] lg:rounded-[200px] border overflow-hidden">
+                    <div className="w-full lg:w-1/3 flex justify-center relative">
+                    <div className='absolute -top-3 lg:-top-6  right-4 lg:-right-3'>
+                                <img src={marks} alt="" className='w-16 h-16'/>
+                            </div>
+                        <div className="  w-52 lg:w-72 h-72 lg:h-96 rounded-[142px] lg:rounded-[200px] border overflow-hidden">
                             <img
                                 src={reviews[currentIndex].image}
                                 alt="Customer"
                                 className="w-full h-full object-cover"
                             />
+                             
                         </div>
                     </div>
 
