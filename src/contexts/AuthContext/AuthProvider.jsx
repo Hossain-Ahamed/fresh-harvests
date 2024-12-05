@@ -2,8 +2,11 @@ import React, { createContext, useState } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import config from '../../../config';
 import LoadingPage from '../../pages/Others/LoadingPage';
+import Cookies from 'js-cookie';
+import CryptoJS from 'crypto-js';
+
 export const AuthContext = createContext();
-const AuthProvider = () => {
+const AuthProvider = ({children}) => {
     const axiosSecure = useAxiosSecure();
 
     const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +37,7 @@ const AuthProvider = () => {
             .then((data) => {
                 // set Data to the state
                 const userData = { email: email };
-                setAdmin(userData);
+                setUser(userData);
                 const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(adminData), config.DATA_ENCRYPTION_KEY).toString();
                 Cookies.set('_userData', encryptedData, {
                     secure: true,
@@ -64,8 +67,8 @@ const AuthProvider = () => {
     }
 
     return (
-        <AuthContext.Provider>
-
+        <AuthContext.Provider value={value}>
+            {children}
         </AuthContext.Provider>
     );
 };
