@@ -4,13 +4,28 @@ import config from '../../config';
 
 
 const axiosSecure = axios.create({
-    baseURL: `${config.SERVER_ADDRESS}`, 
+    baseURL: `${config.SERVER_ADDRESS}`,
     withCredentials: true,
 });
 const useAxiosSecure = () => {
-    
+
 
     useEffect(() => {
+
+        axiosSecure.interceptors.request.use(
+            (config) => {
+
+                const token = localStorage.getItem('harvest_auth_token');
+                if (token) {
+                    config.headers['Authorization'] = token;
+                }
+                return config;
+            },
+            (error) => {
+                return Promise.reject(error);
+            }
+        );
+
         axiosSecure.interceptors.response.use(
             (response) => response,
             async (error) => {

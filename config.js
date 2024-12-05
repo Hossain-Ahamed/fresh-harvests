@@ -7,7 +7,11 @@ const config = {
   SITENAME: import.meta.env.VITE_SITENAME,
   SITE_URL : import.meta.env.VITE_SITE_URL,
 
-  SERVER_ADDRESS : import.meta.env.VITE_SERVER_ADDRESS
+
+  ADMIN_EMAIL : import.meta.env.VITE_ADMIN_EMAIL,
+
+  SERVER_ADDRESS : import.meta.env.VITE_SERVER_ADDRESS,
+  DATA_ENCRYPTION_KEY : import.meta.env.VITE_DATA_ENCRYPTION_KEY,
 };
 
 export default config;

@@ -4,7 +4,7 @@ import SEO from "../../../components/SEO/SEO";
 const Home = () => {
     return (
         <div>
-            <SEO/>
+            <SEO />
            Home 
         </div>
     );
