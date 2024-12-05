@@ -96,6 +96,14 @@ export default {
           lineHeight: 'normal',
           letterSpacing: '-0.28px',
         },
+        '.sub-heading-3': {
+          fontFamily: "'Rubik', sans-serif",
+          fontSize: '28px',
+          fontStyle: 'normal',
+          fontWeight: '400',
+          lineHeight: 'normal',
+          letterSpacing: '-0.56px',
+        },
         // Body
         '.body-1': {
           fontFamily: "'Questrial', sans-serif",
