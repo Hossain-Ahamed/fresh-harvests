@@ -194,7 +194,7 @@ const ProductDetailInformationSection = ({ productData }) => {
                     Reviews&#40;1&#41;
                 </button>
             </div>
-            <div className='w-2/3 bg-grey-20 mt-6 p-6 md:px-8 lg:py-10 rounded-3xl text-grey-100 body-3 md:body-2' aria-label='content'>
+            <div className='w-full lg:w-2/3 bg-grey-20 mt-6 p-6 md:px-8 lg:py-10 rounded-3xl text-grey-100 body-3 md:body-2' aria-label='content'>
                 <p className="whitespace-pre-line">
                     Our coconuts are sustainably grown, ensuring the best quality and taste. Each coconut is handpicked and carefully prepared, offering you the freshest product possible. Rich in healthy fats, electrolytes, and essential nutrients, coconuts provide both hydration and nourishment. Whether you’re using the water, flesh, or milk, our coconuts bring versatility to your kitchen while supporting healthy living.
 

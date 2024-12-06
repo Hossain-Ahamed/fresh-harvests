@@ -108,15 +108,15 @@ const Footer = () => {
 
             <div className='py-6 grid grid-cols-1 lg:grid-cols-2 gap-6'>
                 <div className='order-2 lg:order-1 flex justify-center lg:justify-start items-center'>
-                    
-                   <p className='heading-7 text-black'>© Copyright 2024, All Rights Reserved by Banana Studio</p>
+
+                    <p className='heading-7 text-black'>© Copyright 2024, All Rights Reserved by Banana Studio</p>
                 </div>
                 <div className='order-1 lg:order-2 flex justify-center lg:justify-end items-center'>
-                   <img src={social} alt="social icons" />
+                    <img src={social} alt="social icons" />
                 </div>
             </div>
 
-          
+
         </div>
     );
 };
@@ -124,7 +124,7 @@ const Footer = () => {
 export default Footer;
 
 const QuickLink = ({ sectionName, links }) => {
-    console.log(links)
+
     return (
         <div className='grid grid-cols-1 gap-3 items-start justify-start'>
             <p className='text-black heading-6'>{sectionName}</p>
