@@ -104,7 +104,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <hr class="h-px mt-8 bg-grey-50 border-0" />
+            <hr className="h-px mt-8 bg-grey-50 border-0" />
 
             <div className='py-6 grid grid-cols-1 lg:grid-cols-2 gap-6'>
                 <div className='order-2 lg:order-1 flex justify-center lg:justify-start items-center'>

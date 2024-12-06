@@ -18,7 +18,7 @@ const Home = () => {
             <BottomBanner />
             <Testimonial />
             <Blog/>
-            <Footer/>
+           
         </>
     );
 };
