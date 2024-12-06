@@ -8,6 +8,7 @@ import heartIcon from '../../../assets/svg/heart.svg'
 import cart from '../../../assets/svg/cart.svg'
 import star from '../../../assets/svg/star.svg'
 import ProductCard from '../../Shared/PorductCard/ProductCard';
+import SEO from '../../../components/SEO/SEO';
 const ProductDetail = () => {
     const axiosSecure = useAxiosSecure();
     const [quantity, setQuantity] = useState(1);
@@ -76,6 +77,8 @@ const ProductDetail = () => {
     if (isLoading) return <LoadingPage />
     if (error) return <Error />
     return (
+        <>
+       <SEO title={product.productName} ogDescription={product.description} ogImage={product.images[0]}/>
         <div className='mt-4 lg:mt-8 px-4 lg:px-20'>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 '>
                 <ImageViewer images={product.images} />
@@ -143,6 +146,7 @@ const ProductDetail = () => {
             <ProductDetailInformationSection productData={product} />
             <RelatedProducts />
         </div>
+          </>
     );
 };
 
@@ -184,6 +188,7 @@ const ImageViewer = ({ images }) => {
 const ProductDetailInformationSection = ({ productData }) => {
     return (
         <>
+       
             <div className='mt-14 flex justify-start gap-3 lg:gap-6'>
 
 
