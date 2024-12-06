@@ -4,17 +4,23 @@ import config from '../../config';
 import { Navigate } from 'react-router-dom';
 import LoadingPage from '../pages/Others/LoadingPage';
 
-const AdminProtectedRoute = () => {
+const AdminProtectedRoute = ({children}) => {
     const { isLoading, user } = useAuth();
 
     if (isLoading) {
         return <LoadingPage />
     }
 
+
+    //todo : remove this
+    return children
+
     //match with admin email
-    if (user.email === config.ADMIN_EMAIL) {
-        return children; 
-    }
+    // if (user && user.email === config.ADMIN_EMAIL) {
+    //     return children; 
+    // }
+
+
 
     return <Navigate to='/' replace></Navigate>
 };

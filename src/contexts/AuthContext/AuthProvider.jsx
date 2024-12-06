@@ -22,37 +22,88 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(Cookies.get('_userData') ? ParsingData() : null);
 
 
-    // Login function
-    const loginByEmailPass = (email, password) => {
-        setIsLoading(true);
 
-        axiosSecure.post(`/auth/login`,
-            {
-                email: email,
-                password: password,
-            },
-            {
-                withCredentials: true,
-            })
-            .then((data) => {
-                // set Data to the state
-                const userData = { email: email };
-                setUser(userData);
-                const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(adminData), config.DATA_ENCRYPTION_KEY).toString();
-                Cookies.set('_userData', encryptedData, {
-                    secure: true,
-                    sameSite: 'Strict',
-                });
+  // Login function
+  const loginByEmailPass = (email, password) => {
+    setIsLoading(true);
 
-                //store the authorization token to localstorage to add in header
-                const token = data.data?.token || '';
-                localStorage.setItem('harvest_auth_token', token);
+    // Return a promise so the caller can handle the result
+    return new Promise((resolve, reject) => {
+      axiosSecure
+        .post(
+          `/auth/login`,
+          {
+            email: email,
+            password: password,
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .then((data) => {
+          //Set Data to the state
+          const userData = { email: email };
+          setUser(userData);
 
-            })
-            .catch((e) => console.error(e))
-            .finally(() => setIsLoading(false))
+          //Encrypt user data and store in cookies
+          const encryptedData = CryptoJS.AES.encrypt(
+            JSON.stringify(userData),
+            config.DATA_ENCRYPTION_KEY
+          ).toString();
 
-    };
+          Cookies.set('_userData', encryptedData, {
+            secure: true,
+            sameSite: 'Strict',
+          });
+
+        
+          const token = data.data?.token || '';
+          localStorage.setItem('harvest_auth_token', token);
+
+          resolve(data); 
+        })
+        .catch((error) => {
+          console.error(error);
+          reject(error); 
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    });
+  };
+   // Signup function
+   const signup = (fullName, email, password) => {
+    setIsLoading(true);
+
+    return new Promise((resolve, reject) => {
+      axiosSecure
+        .post(
+          `/users/register`,
+          {
+            fullName,
+            email,
+            password,
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .then(() => {
+         
+          return loginByEmailPass(email, password);
+        })
+        .then((loginResponse) => {
+          resolve(loginResponse); 
+        })
+        .catch((error) => {
+          console.error(error);
+          reject(error); 
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    });
+  };
 
 
     const value = {
@@ -60,6 +111,7 @@ const AuthProvider = ({children}) => {
         isLoading,
         setIsLoading,
         loginByEmailPass,
+        signup
     };
 
     if (isLoading) {

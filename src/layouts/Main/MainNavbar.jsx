@@ -68,7 +68,7 @@ const MainNavbar = () => {
                     </button>
                     <button aria-label="Cart" className="relative body-3">
                         <Cart color="#749B3F" />
-                        <span className="absolute -top-1 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5">
+                        <span className="absolute -top-3 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5">
                             3
                         </span>
                     </button>
