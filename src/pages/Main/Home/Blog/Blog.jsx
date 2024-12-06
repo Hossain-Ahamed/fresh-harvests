@@ -23,7 +23,7 @@ const Blog = () => {
         },
     ]
     return (
-        <div className="px-4 md:px-16 xl:px-32 mt-16 lg:mt-40  mx-auto">
+        <div id='#blog' className="px-4 md:px-16 xl:px-32 mt-16 lg:mt-40  mx-auto">
             <TitleBar
                 sectionName="Our Blog"
                 heading="Fresh Harvest Blog"
@@ -44,7 +44,7 @@ export default Blog;
 
 const BlogCard = ({ blogData }) => {
     return (
-        <div>
+        <div >
             <div className='w-full md:w-80 '>
                 <img src={blogData.img} alt="" className='w-fit h-fit' />
                 <p className='mt-6 body-2 text-grey-100'>{blogData.date}</p>

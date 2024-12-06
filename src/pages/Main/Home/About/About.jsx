@@ -6,7 +6,7 @@ import speenach from '../../../../assets/images/speenach.png'
 import marks from '../../../../assets/svg/marks.svg'
 const About = () => {
     return (
-        <div className='mt-[70px] lg:mt-28 grid grid-cols-1 lg:grid-cols-2 px-4 lg:px-24 gap-x-8 gap-y-6'>
+        <div id='about-us' className='mt-[70px] lg:mt-28 grid grid-cols-1 lg:grid-cols-2 px-4 lg:px-24 gap-x-8 gap-y-6'>
             <div className="w-full relative">
                 <img src={leaf} alt="" className='bg-transparent absolute h-[40px] lg:h-[80px] w-[40px] lg:[w-80px] top-2 lg:top-16 right-7 lg:right-14 -rotate-90' />
                 <img src={manthumbsup} alt="" className='w-full h-fit' />
